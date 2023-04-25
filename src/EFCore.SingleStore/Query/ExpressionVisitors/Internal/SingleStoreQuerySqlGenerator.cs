@@ -82,7 +82,7 @@ namespace EntityFrameworkCore.SingleStore.Query.ExpressionVisitors.Internal
             // If the path contains parameters, then the -> and ->> aliases are not supported by MySQL, because
             // we need to concatenate the path and the parameters.
             // We will use JSON_EXTRACT (and JSON_UNQUOTE if needed) only in this case, because the aliases
-            // are much more readable.
+            // are much more readable
             var isSimplePath = expression.Path.All(
                 l => l is SqlConstantExpression ||
                      l is SingleStoreJsonArrayIndexExpression e && e.Expression is SqlConstantExpression);
